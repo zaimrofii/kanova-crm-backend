@@ -1,0 +1,76 @@
+### Create a status
+POST http://localhost:8000/api/statuses/
+Content-Type: application/json
+
+{
+  "label": "Lost"
+}
+
+### Get all statuses
+GET http://localhost:8000/api/statuses/a30743d2-bfa6-46e9-89d9-0a9bf899a367/
+
+### Create a client
+POST http://localhost:8000/api/clients/
+Content-Type: application/json
+
+{
+  "name": "Za'im Rofi'i",
+  "email": "zaim@example.com",
+  "phone_number": "081234567890",
+  "company": "Kanova",
+  "job_title": "CEO",
+  "lifecycle_stage": "Opportunity",
+  "status": "3f7f7013-0cc3-4aeb-88cf-a0c0ed54b0d3"
+}
+
+### Get all clients
+GET http://localhost:8000/api/clients/
+
+### Search clients
+GET http://localhost:8000/api/clients/?search=Customer
+
+### Update a client
+PUT http://localhost:8000/api/clients/uuid-client-di-sini/
+Content-Type: application/json
+
+{
+  "name": "Za'im Rofi'i Updated",
+  "email": "zaim@kanova.com",
+  "phone_number": "081234567890",
+  "company": "Kanova AI",
+  "job_title": "Co-Founder",
+  "lifecycle_stage": "Customer",
+  "status": "uuid-status-di-sini"
+}
+
+### Delete a client
+DELETE http://localhost:8000/api/clients/uuid-client-di-sini/
+
+### Create interaction note
+POST http://localhost:8000/api/notes/
+Content-Type: application/json
+
+{
+  "client": "uuid-client-di-sini",
+  "note": "Follow up hari Senin, respon positif"
+}
+
+### Get notes by client
+GET http://localhost:8000/api/notes/
+
+
+###
+GET http://localhost:8000/api/notes/?contact=d3cb1633-6237-4156-aab1-ef3c1b200393&type=activity
+
+### Create reminder
+POST http://localhost:8000/api/reminders/
+Content-Type: application/json
+
+{
+  "client": "uuid-client-di-sini",
+  "follow_up_date": "2025-06-25",
+  "description": "Tindak lanjut penawaran"
+}
+
+### Get reminders
+GET http://localhost:8000/api/reminders/
